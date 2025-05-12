@@ -1,0 +1,73 @@
+<div cdkDropListGroup>
+  <div class="container categorias">
+    <div class="row">
+
+      <div class="col">
+        <h2>organicos</h2>
+      
+        <div
+          id="organico"
+          cdkDropList
+          [cdkDropListData]="organicos"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+          >
+         
+        </div>
+      </div>
+      <div class="col">
+        <h2>Inorganicos</h2>
+      
+        <div
+          id="inorganico"
+          cdkDropList
+          [cdkDropListData]="inorganicos"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+          >
+         
+        </div>
+      </div>
+      <div class="col">
+        <h2>No reciclables</h2>
+      
+        <div
+          id="no_reciclable"
+          cdkDropList
+          [cdkDropListData]="no_reciclables"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+          >
+         
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  
+
+  <div class="container border mt-5">
+    <h2>Objetos</h2>
+  
+    <div
+      id="even"
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      [cdkDropListData]="objetos"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+      >
+      @for (objeto of objetos; track objetos) {
+        <div
+            class="example-box"
+            cdkDrag
+            [cdkDragData]="objetos">{{objeto.nombre}}</div>
+      }
+    </div>
+  </div>
+  
+</div>
+
+
+

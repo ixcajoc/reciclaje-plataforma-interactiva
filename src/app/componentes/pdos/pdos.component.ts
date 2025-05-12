@@ -30,9 +30,9 @@ export class PdosComponent {
   no_reciclables: any[]=[] 
 
   objetos: any[] = [
-    { nombre: 'Cáscara de plátano', tipo: 'organico', imagen: 'assets/platano.jpg' },
-    { nombre: 'Botella de plástico', tipo: 'inorganico', imagen: 'assets/botella.webp' },
-    { nombre: 'Papel sucio', tipo: 'no_reciclable', imagen: 'assets/papel.webp' }
+    { nombre: 'Cáscara de plátano', tipo: 'organico', imagen: 'assets/platano.avif' },
+    { nombre: 'Botella de plástico', tipo: 'inorganico', imagen: 'assets/botella.png' },
+    { nombre: 'Papel sucio', tipo: 'no_reciclable', imagen: 'assets/papel.jpg' }
   ];
 
   drop(event: CdkDragDrop<any[]>) {
@@ -51,6 +51,10 @@ export class PdosComponent {
           event.previousIndex,
           event.currentIndex,
         );
+        console.log(event.previousContainer.data)
+        console.log(event.container.data)
+        console.log(event.previousIndex)
+        console.log(event.currentIndex)
         
         alert('Dentro')
   
@@ -60,7 +64,6 @@ export class PdosComponent {
     }
 
   }
-
 
 
   
@@ -89,9 +92,9 @@ export class PdosComponent {
 
   // }
 
-  evenPredicate(item: CdkDrag<any>) {
+  // evenPredicate(item: CdkDrag<any>) {
     
-    return item.data % 2 === 0
-  }
+  //   return item.data % 2 === 0
+  // }
 
 }

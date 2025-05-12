@@ -3,6 +3,7 @@
   max-width: 100%;
   border: solid 1px #ccc;
   min-height: 60px;
+  height: 30vh;
   display: flex;
   flex-direction: row;
   background: white;
@@ -54,6 +55,7 @@
 }
 
 
+/*Estilos propios*/
 .caja {
   padding: 20px 10px;
   height: 300px;
@@ -67,4 +69,13 @@
   cursor: move;
   background: white;
   font-size: 14px;
+}
+.img{
+  width: 100px;
+}
+.entered{
+  cursor: pointer;
+}
+.entered:hover{
+  border: solid green;
 }

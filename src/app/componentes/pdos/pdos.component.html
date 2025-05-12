@@ -5,11 +5,11 @@
       <div class="col">
         <h2>organicos</h2>
       
-        <div
+        <div 
           id="organico"
           cdkDropList
           [cdkDropListData]="organicos"
-          class="example-list"
+          class="example-list entered"
           (cdkDropListDropped)="drop($event)"
           >
          
@@ -22,7 +22,7 @@
           id="inorganico"
           cdkDropList
           [cdkDropListData]="inorganicos"
-          class="example-list"
+          class="example-list entered"
           (cdkDropListDropped)="drop($event)"
           >
          
@@ -35,7 +35,7 @@
           id="no_reciclable"
           cdkDropList
           [cdkDropListData]="no_reciclables"
-          class="example-list"
+          class="example-list entered"
           (cdkDropListDropped)="drop($event)"
           >
          
@@ -56,13 +56,21 @@
       cdkDropListOrientation="horizontal"
       [cdkDropListData]="objetos"
       class="example-list"
-      (cdkDropListDropped)="drop($event)"
       >
       @for (objeto of objetos; track objetos) {
         <div
-            class="example-box"
-            cdkDrag
-            [cdkDragData]="objetos">{{objeto.nombre}}</div>
+          class="example-box border border-primary d-flex justify-content-center"
+          cdkDrag
+          [cdkDragData]="objetos"
+          >
+          <div class="d-flex flex-column">
+            {{objeto.nombre}}
+            <img class="img" [src]="objeto.imagen" alt="{{objeto.nombre}}">
+
+          </div>
+          
+
+        </div>
       }
     </div>
   </div>

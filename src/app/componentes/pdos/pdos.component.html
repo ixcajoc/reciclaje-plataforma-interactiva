@@ -58,19 +58,28 @@
       class="example-list"
       >
       @for (objeto of objetos; track objetos) {
-        <div
-          class="example-box border border-primary d-flex justify-content-center"
-          cdkDrag
-          [cdkDragData]="objetos"
-          >
-          <div class="d-flex flex-column">
-            {{objeto.nombre}}
-            <img class="img" [src]="objeto.imagen" alt="{{objeto.nombre}}">
+        
+        <!-- <p>{{cantidadObjetos}}</p> -->
+        <!-- <p>{{$index}}</p> -->
+        @if ($index<3) {
 
+          <div
+            class="example-box border border-primary d-flex justify-content-center"
+            cdkDrag
+            [cdkDragData]="objetos"
+            >
+            <div class="d-flex flex-column">
+              {{objeto.nombre}}
+              <img class="img" [src]="objeto.imagen" alt="{{objeto.nombre}}">
+              
+  
+            </div>
+            
           </div>
-          
 
-        </div>
+        }
+
+        
       }
     </div>
   </div>

@@ -32,8 +32,11 @@ export class PdosComponent {
   objetos: any[] = [
     { nombre: 'Cáscara de plátano', tipo: 'organico', imagen: 'assets/platano.avif' },
     { nombre: 'Botella de plástico', tipo: 'inorganico', imagen: 'assets/botella.png' },
-    { nombre: 'Papel sucio', tipo: 'no_reciclable', imagen: 'assets/papel.jpg' }
+    { nombre: 'Papel sucio', tipo: 'no_reciclable', imagen: 'assets/papel.jpg' },
+    { nombre: 'Cascara de manzana', tipo: 'organico', imagen: 'assets/papel.jpg' },
+    { nombre: 'llanta', tipo: 'no_reciclable', imagen: 'assets/papel.jpg' }
   ];
+
 
   drop(event: CdkDragDrop<any[]>) {
     let tipoObjeto = event.item.data[event.previousIndex].tipo
@@ -66,35 +69,5 @@ export class PdosComponent {
   }
 
 
-  
-  // drop(event: CdkDragDrop<any[]>) {
-    
-  //   console.log(event.item.data[event.previousIndex].tipo)
-  //   console.log(event.container.id)
-  //   if(this.evenPredicate(event.item)){
-      
-  //     if (event.previousContainer === event.container) {
-  //       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  //     } else {
-  //         transferArrayItem(
-  //         event.previousContainer.data,
-  //         event.container.data,
-  //         event.previousIndex,
-  //         event.currentIndex,
-  //       );
-        
-  //       alert('Dentro')
-  
-  //     }
-  //   }else{
-  //     alert('no aceptado')
-  //   }
-
-  // }
-
-  // evenPredicate(item: CdkDrag<any>) {
-    
-  //   return item.data % 2 === 0
-  // }
 
 }

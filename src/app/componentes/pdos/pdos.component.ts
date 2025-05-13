@@ -10,6 +10,8 @@ import {
   DragDropModule,
 } from '@angular/cdk/drag-drop';
 import { AlertService } from '../../services/alert-service.service';
+import { ApiService } from '../../services/api-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-pdos',
@@ -17,19 +19,23 @@ import { AlertService } from '../../services/alert-service.service';
   imports: [
     CommonModule,
     DragDropModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule,
   ],
   templateUrl: './pdos.component.html',
   styleUrl: './pdos.component.css'
 })
 export class PdosComponent {
-  constructor(private alertService: AlertService){
-  }
+  constructor(
+    private alertService: AlertService,
+    private apiService: ApiService
+  ){}
 
   organicos: any[]=[] 
   inorganicos: any[]=[] 
   no_reciclables: any[]=[]
   totalPunteo: number = 0
+  datos:any = []
 
 
   objetos: any[] = [
@@ -73,6 +79,27 @@ export class PdosComponent {
 
   }
 
+  ngOnInit(): void{
+    this.getItems();
+  }
 
+  getItems(){
+    // this.apiService.getItems().subscribe(
+    //   (respuesta) => {
+    //     this.datos = respuesta;
+    //     console.log(this.datos);
+    //   },
+    //   (error) => {
+    //     console.error('Error al obtener datos', error)
+    //   }
+      
+    // );
+
+    this.apiService.getItems().subscribe({
+      next: (response)=> {console.log(response)},
+      error: (error) => {console.log(error)}
+    });
+
+  }
 
 }

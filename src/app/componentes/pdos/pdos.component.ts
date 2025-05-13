@@ -9,6 +9,7 @@ import {
   CdkDropList,
   DragDropModule,
 } from '@angular/cdk/drag-drop';
+import { AlertService } from '../../services/alert-service.service';
 
 @Component({
   selector: 'app-pdos',
@@ -23,6 +24,7 @@ import {
   styleUrl: './pdos.component.css'
 })
 export class PdosComponent {
+  constructor(private alertService: AlertService){}
 
   // categorias: any[] = ["organico","inorganico","no_reciclable"]
   organicos: any[]=[] 
@@ -40,6 +42,7 @@ export class PdosComponent {
 
   drop(event: CdkDragDrop<any[]>) {
     let tipoObjeto = event.item.data[event.previousIndex].tipo
+    let nombreObjeto = event.item.data[event.previousIndex].nombre
     let tipoContenedor = event.container.id
     // console.log(event.item.data[event.previousIndex].tipo)
     // console.log(event.container.id)
@@ -59,11 +62,15 @@ export class PdosComponent {
         console.log(event.previousIndex)
         console.log(event.currentIndex)
         
-        alert('Dentro')
+        // alert('Dentro')
+        // this.alertService.alertaFelicitacion(nombreObjeto,tipoObjeto)
+        this.alertService.sweetAlertCorrecto(nombreObjeto,tipoObjeto)
   
       }
     }else{
-      alert('no aceptado')
+      // this.alertService.alertaRetroalimentacion(nombreObjeto,tipoContenedor)
+        this.alertService.sweetAlertIncorrecto(nombreObjeto,tipoContenedor)
+
     }
 
   }

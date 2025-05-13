@@ -7,14 +7,6 @@ import Swal from 'sweetalert2';
 export class AlertService {
 
   constructor() { }
-  
-  alertaRetroalimentacion(nombreObjeto:string, frase: string):void{
-    alert(`Recuerda que ${nombreObjeto} no pertenece a ${frase}`);
-  }
-
-  alertaFelicitacion(nombreObjeto:string, frase: string):void{
-    alert(`Correcto! ${nombreObjeto} es ${frase}`);
-  }
 
   sweetAlertCorrecto(nombreObjeto:string, tipoObjeto:string){
     Swal.fire({
@@ -46,4 +38,16 @@ export class AlertService {
       `
     });
   }
+
+  // punteo(tipoContenedor:string,tipoObjeto:string){
+  //   let punteo = 0//esto esta ma. Cada vez que se ejecute la funcion, el valor iniciara en cero, no permitira acumular puntos
+  //   if(tipoContenedor == tipoObjeto){
+  //     punteo +=10;
+  //   }else{
+  //     punteo -=5
+  //   }
+  //   return punteo
+
+  // }
+
 }

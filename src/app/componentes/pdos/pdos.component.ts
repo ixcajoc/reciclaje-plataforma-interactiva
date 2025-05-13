@@ -18,18 +18,19 @@ import { AlertService } from '../../services/alert-service.service';
     CommonModule,
     DragDropModule,
     MatGridListModule
-    
   ],
   templateUrl: './pdos.component.html',
   styleUrl: './pdos.component.css'
 })
 export class PdosComponent {
-  constructor(private alertService: AlertService){}
+  constructor(private alertService: AlertService){
+  }
 
-  // categorias: any[] = ["organico","inorganico","no_reciclable"]
   organicos: any[]=[] 
   inorganicos: any[]=[] 
-  no_reciclables: any[]=[] 
+  no_reciclables: any[]=[]
+  totalPunteo: number = 0
+
 
   objetos: any[] = [
     { nombre: 'Cáscara de plátano', tipo: 'organico', imagen: 'assets/platano.avif' },
@@ -39,13 +40,11 @@ export class PdosComponent {
     { nombre: 'llanta', tipo: 'no_reciclable', imagen: 'assets/papel.jpg' }
   ];
 
-
   drop(event: CdkDragDrop<any[]>) {
     let tipoObjeto = event.item.data[event.previousIndex].tipo
     let nombreObjeto = event.item.data[event.previousIndex].nombre
     let tipoContenedor = event.container.id
-    // console.log(event.item.data[event.previousIndex].tipo)
-    // console.log(event.container.id)
+
     if(tipoObjeto === tipoContenedor){
       
       if (event.previousContainer === event.container) {
@@ -57,19 +56,18 @@ export class PdosComponent {
           event.previousIndex,
           event.currentIndex,
         );
-        console.log(event.previousContainer.data)
-        console.log(event.container.data)
-        console.log(event.previousIndex)
-        console.log(event.currentIndex)
         
-        // alert('Dentro')
         // this.alertService.alertaFelicitacion(nombreObjeto,tipoObjeto)
+        // this.totalPunteo = this.alertService.punteo(tipoContenedor,tipoObjeto)
+        this.totalPunteo +=10
         this.alertService.sweetAlertCorrecto(nombreObjeto,tipoObjeto)
   
       }
     }else{
       // this.alertService.alertaRetroalimentacion(nombreObjeto,tipoContenedor)
-        this.alertService.sweetAlertIncorrecto(nombreObjeto,tipoContenedor)
+      // this.totalPunteo = this.alertService.punteo(tipoContenedor,tipoObjeto)
+      this.totalPunteo -=5
+      this.alertService.sweetAlertIncorrecto(nombreObjeto,tipoContenedor)
 
     }
 

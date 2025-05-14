@@ -19,7 +19,7 @@ export class ApiService{
 
   getItems(): Observable<any>{
     // return this.http.get(`${this.apiUrl}/items`);
-    return this.http.get('http://localhost:4000/api/items');
+    return this.http.get<any>('http://localhost:4000/api/items');
 
   }
 

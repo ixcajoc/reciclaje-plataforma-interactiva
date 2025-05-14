@@ -1,0 +1,20 @@
+<!-- As a heading -->
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Navbar</span>
+    <button type="button" (click)="pauseSong()" class="btn btn-primary">Detener</button>
+    <button type="button" (click)="playSong()" class="btn btn-primary">Play</button>
+    <div class="volumen">
+      @if (this.sonidoOn) {
+        
+        <i class="bi bi-volume-up-fill fs-2" style="cursor: pointer;" (click)="volumenOn(false)"></i>
+
+      }@else {
+        
+        <i class="bi bi-volume-mute fs-2" style="cursor: pointer;" (click)="volumenOn(true)"></i>
+      }
+      <input type="range" min="0" max="1" step="0.01" value="0.05" (input)="volumen($event)">
+
+    </div>
+  </div>
+</nav>

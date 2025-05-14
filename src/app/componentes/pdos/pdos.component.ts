@@ -10,8 +10,10 @@ import {
   DragDropModule,
 } from '@angular/cdk/drag-drop';
 import { AlertService } from '../../services/alert-service.service';
-import { ApiService } from '../../services/api-service.service';
+// import { ApiService } from '../../services/api-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SonidoService } from '../../services/sonido-service.service';
+import HeaderComponent from '../header/header.component';
 
 @Component({
   selector: 'app-pdos',
@@ -21,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     DragDropModule,
     MatGridListModule,
     HttpClientModule,
+    HeaderComponent
   ],
   templateUrl: './pdos.component.html',
   styleUrl: './pdos.component.css'
@@ -28,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
 export class PdosComponent {
   constructor(
     private alertService: AlertService,
-    private apiService: ApiService
+    private sonidoService: SonidoService,
+    // private apiService: ApiService
   ){}
 
   organicos: any[]=[] 
@@ -65,41 +69,45 @@ export class PdosComponent {
         
         // this.alertService.alertaFelicitacion(nombreObjeto,tipoObjeto)
         // this.totalPunteo = this.alertService.punteo(tipoContenedor,tipoObjeto)
+        this.sonidoService.respuestaCorrecta();
+        this.alertService.sweetAlertCorrecto(nombreObjeto,tipoObjeto);
         this.totalPunteo +=10
-        this.alertService.sweetAlertCorrecto(nombreObjeto,tipoObjeto)
   
       }
     }else{
       // this.alertService.alertaRetroalimentacion(nombreObjeto,tipoContenedor)
       // this.totalPunteo = this.alertService.punteo(tipoContenedor,tipoObjeto)
+      this.sonidoService.respuestaIncorrecta();
+      this.alertService.sweetAlertIncorrecto(nombreObjeto,tipoContenedor);
       this.totalPunteo -=5
-      this.alertService.sweetAlertIncorrecto(nombreObjeto,tipoContenedor)
 
     }
 
   }
 
   ngOnInit(): void{
-    this.getItems();
+    // this.getItems();
+    // this.sonidoService.playFondo();
   }
 
-  getItems(){
-    // this.apiService.getItems().subscribe(
-    //   (respuesta) => {
-    //     this.datos = respuesta;
-    //     console.log(this.datos);
-    //   },
-    //   (error) => {
-    //     console.error('Error al obtener datos', error)
-    //   }
+  // getItems(){
+  //   this.apiService.getItems().subscribe(
+  //     (respuesta) => {
+  //       this.datos = respuesta;
+  //       console.log(this.datos);
+  //     },
+  //     (error) => {
+  //       console.error('Error al obtener datos', error)
+  //     }
       
-    // );
+  //   );
 
-    this.apiService.getItems().subscribe({
-      next: (response)=> {console.log(response)},
-      error: (error) => {console.log(error)}
-    });
+  //   // this.apiService.getItems().subscribe({
+  //   //   next: (response)=> {console.log(response)},
+  //   //   error: (error) => {console.log(error)}
+  //   // });
 
-  }
+  // }
+
 
 }

@@ -1,76 +1,81 @@
-<app-header/>
-<div cdkDropListGroup>
-  
-  <div class="container">
-    <p>punteo: {{totalPunteo}}</p>
-  </div>
+<div class="fondo-morado">  
+  <app-header [punteo]="totalPunteo"/>
+  <div class="py-5" cdkDropListGroup>
+    
+    <!-- <div class="container text-white">
+      <div class="">
 
-  <!-- aca comientza iteracion  -->
-  <div class="container categorias">
-    <div class="row">
-      @for (categoria of listaCategories; track categoria) {
-      <div class="col">
-        <h2>{{categoria.categoryName}}</h2>
-      
-        <div 
-          id={{categoria._id}}
-          cdkDropList
-          [cdkDropListData]="categoria.items"
-          class="example-list entered"
-          (cdkDropListDropped)="drop($event,categoria.categoryName)"
-          >
-          <!-- Categoria: {{categoria.categoryName}}<br>
-          Id: {{categoria._id}} -->
-          <!-- ------------------------------ -->
-          <!-- @for (item of categoria.items; track item) {
-            {{item}}
-          } -->
-        </div>
+        <p>punteo: {{totalPunteo}}</p>
       </div>
-      }
+    </div> -->
+
+    <!-- aca comientza iteracion  -->
+    <div class="container categorias">
+      <div class="row ">
+        @for (categoria of listaCategories; track categoria) {
+        <div class="col">
+          <!-- <h2>{{categoria.categoryName}}</h2> -->
+          <div
+            id={{categoria._id}}
+            cdkDropList
+            [cdkDropListData]="categoria.items"
+            class="example-list entered"
+            (cdkDropListDropped)="drop($event,categoria.categoryName)"
+            >
+            
+            <div class="my-placeholder">
+              {{categoria.categoryName}}
+            </div>
+            <!-- Categoria: {{categoria.categoryName}}<br>
+            Id: {{categoria._id}} -->
+            <!-- ------------------------------ -->
+            <!-- @for (item of categoria.items; track item) {
+              {{item}}
+            } -->
+          </div>
+        </div>
+        }
+
+      </div>
 
     </div>
 
-  </div>
+    <!-- Tarjetas de objetos -->
+    <div class="container 
+      d-flex justify-content-center mt-5">
+      <div
+        id="even"
+        cdkDropList
+        cdkDropListOrientation="horizontal"
+        [cdkDropListData]="listaBasusa"
+        class="tarjeta"
+        >
+        @for (basura of listaBasusa; track basura) {
+          
+          @if ($index<1) {
 
-  <!-- aca empieza el otro mudoulo -->
-  <div class="container border mt-5">
-    <h2>Objetos 2</h2>
-  
-    <div
-      id="even"
-      cdkDropList
-      cdkDropListOrientation="horizontal"
-      [cdkDropListData]="listaBasusa"
-      class="example-list"
-      >
-      @for (basura of listaBasusa; track basura) {
-        
-        <!-- <p>{{cantidadObjetos}}</p> -->
-        <!-- <p>{{$index}}</p> -->
-        @if ($index<3) {
+            <div
+              class="caja"
+              cdkDrag
+              [cdkDragData]="basura"
+              >
+              <div class="d-flex flex-column">
 
-          <div
-            class="example-box border border-primary d-flex justify-content-center"
-            cdkDrag
-            [cdkDragData]="basura"
-            >
-            <div class="d-flex flex-column">
-              Nombre: {{basura.itemName}} <br>
-              <!-- Categoria{{basura.category}} -->
-              <!-- <img class="img" [src]="objeto.imagen" alt="{{objeto.nombre}}"> -->
-              
-  
+                <p class="text-center text-white p-2" 
+                  style="background-color: #552277;">{{basura.itemName}}</p> 
+                <div class="d-flex justify-content-center align-items-center">
+                  <img class="img" src="assets/botella.png" alt="{{basura.itemName}}">
+                  <!-- <img class="img" [src]="objeto.imagen" alt="{{objeto.nombre}}"> -->
+                </div>
+                
+              </div>
             </div>
-            
-          </div>
-        }  
-      }
+          }  
+        }
+      </div>
+
     </div>
 
   </div>
 
 </div>
-
-
-

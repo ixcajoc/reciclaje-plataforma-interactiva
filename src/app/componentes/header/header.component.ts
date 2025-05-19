@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SonidoService } from '../../services/sonido-service.service';
 
 @Component({
@@ -13,6 +13,7 @@ import { SonidoService } from '../../services/sonido-service.service';
 })
 export default class HeaderComponent {
 
+  @Input() punteo!: number;
   sonidoOn: boolean = true;
 
   constructor(
@@ -52,6 +53,4 @@ export default class HeaderComponent {
     }
   }
   
-
-
 }

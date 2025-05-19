@@ -1,17 +1,23 @@
 <!-- As a heading -->
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Navbar</span>
-    <button type="button" (click)="pauseSong()" class="btn btn-primary">Detener</button>
-    <button type="button" (click)="playSong()" class="btn btn-primary">Play</button>
-    <div class="volumen">
+<nav class="navbar barra-navegacion">
+  <div class="container">
+    <!-- <span class="navbar-brand mb-0 h1">Navbar</span> -->
+    <div class="d-flex gap-3 align-items-center">
+      <img class="img" src="assets/user-dog.png" alt="user dog">
+      <p class="text-black m-0">Nombre</p>
+      <p class="text-black m-0">Puntos: {{punteo}}</p>
+    </div>
+    <!-- <button type="button" (click)="pauseSong()" class="btn btn-primary">Detener</button> -->
+    <!-- <button type="button" (click)="playSong()" class="btn btn-primary">Play</button> -->
+    <div class="volumen d-flex align-items-center gap-2">
       @if (this.sonidoOn) {
         
-        <i class="bi bi-volume-up-fill fs-2" style="cursor: pointer;" (click)="volumenOn(false)"></i>
+        <i class="bi bi-volume-up-fill fs-2" (click)="volumenOn(false)"
+        style="cursor: pointer; color: #552277;"></i>
 
       }@else {
         
-        <i class="bi bi-volume-mute fs-2" style="cursor: pointer;" (click)="volumenOn(true)"></i>
+        <i class="bi bi-volume-mute fs-2" style="cursor: pointer; color: #552277" (click)="volumenOn(true)"></i>
       }
       <input type="range" min="0" max="1" step="0.01" value="0.05" (input)="volumen($event)">
 

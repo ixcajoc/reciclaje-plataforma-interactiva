@@ -1,3 +1,11 @@
+.fondo-morado{
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg %3E%3Ccircle fill='%23000000' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23230046' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%232f0052' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%233b075e' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%2348156a' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23552277' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
 .example-list {
   /* width: 1000px; */
   max-width: 100%;
@@ -6,10 +14,11 @@
   height: 30vh;
   display: flex;
   flex-direction: row;
-  background: white;
+  background: rgba(255, 255, 255, 0.351);
   border-radius: 4px;
   overflow: hidden;
   justify-content: space-between;
+    position: relative;
   
 }
 
@@ -23,10 +32,12 @@
   justify-content: space-between;
   box-sizing: border-box;
   cursor: move;
-  background: white;
+  /* background: white; */
+  /* background: rgb(166, 116, 116); */
   font-size: 14px;
   flex-grow: 1;
   flex-basis: 0;
+  
   
 }
 
@@ -56,19 +67,29 @@
 
 
 /*Estilos propios*/
-.caja {
-  padding: 20px 10px;
-  height: 300px;
-  border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
+.tarjeta {
+  width: 32%;
+  /* max-width: 100%; */
+  /* min-width: 100%; */
+  border: solid 1px #ccc;
+  min-height: 60px;
+  height: 30vh;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  background: rgba(255, 255, 255, 0.351);
+  border-radius: 4px;
+  overflow: hidden;
   justify-content: space-between;
+  position: relative;
+}
+.caja{
+  color: rgba(0, 0, 0, 0.87);
   box-sizing: border-box;
   cursor: move;
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
   font-size: 14px;
+  flex-grow: 1;
+  flex-basis: 0;
 }
 .img{
   width: 100px;
@@ -77,5 +98,19 @@
   cursor: pointer;
 }
 .entered:hover{
-  border: solid green;
+  /* border: solid #fcf8058c; */
+  /* box-shadow: 0px 10px 23px 1px rgba(237,240,0,0.65); */
+  box-shadow: 0px 10px 23px 1px rgba(255,255,255,0.65);
+}
+
+.my-placeholder {
+  color: #000000;
+  font-weight: bold;
+  pointer-events: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  /* left: 16px; */
+  font-size: 16px;
+  user-select: none;
 }

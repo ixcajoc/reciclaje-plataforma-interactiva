@@ -14,9 +14,11 @@ export class AlertService {
       width: 600,
       padding: "3em",
       color: "#716add",
-      background: "rgba(255, 255, 255, 0.2) url(/images/trees.png)",
+      // color: "#000",
+      // background: "rgba(255, 255, 255, 0.2)",
       backdrop: `
-        rgba(0,0,123,0.4)
+        
+        rgba(255, 255, 255,0.5)
         url("/assets/patito.gif")
         left top
         no-repeat
@@ -29,7 +31,7 @@ export class AlertService {
       width: 600,
       padding: "3em",
       color: "#716add",
-      background: "rgba(255, 255, 255,0.5) url(/images/trees.png)",
+      // background: "rgba(255, 255, 255,0.5) url(/assets/botella.png)",
       backdrop: `
         rgba(255, 255, 255,0.5)
         url("/assets/minionError.gif")

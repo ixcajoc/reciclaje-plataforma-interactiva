@@ -10,10 +10,10 @@ import {
   DragDropModule,
 } from '@angular/cdk/drag-drop';
 import { AlertService } from '../../services/alert-service.service';
-// import { ApiService } from '../../services/api-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SonidoService } from '../../services/sonido-service.service';
 import HeaderComponent from '../header/header.component';
+import { ApiService } from '../../services/api-service.service';
 
 @Component({
   selector: 'app-pdos',
@@ -32,14 +32,16 @@ export class PdosComponent {
   constructor(
     private alertService: AlertService,
     private sonidoService: SonidoService,
-    // private apiService: ApiService
+    private apiService: ApiService
   ){}
 
-  organicos: any[]=[] 
-  inorganicos: any[]=[] 
-  no_reciclables: any[]=[]
+  // organicos: any[]=[] 
+  // inorganicos: any[]=[] 
+  // no_reciclables: any[]=[]
   totalPunteo: number = 0
   datos:any = []
+  listaBasusa: any = []
+  listaCategories: any = []
 
 
   objetos: any[] = [
@@ -50,12 +52,23 @@ export class PdosComponent {
     { nombre: 'llanta', tipo: 'no_reciclable', imagen: 'assets/papel.jpg' }
   ];
 
-  drop(event: CdkDragDrop<any[]>) {
-    let tipoObjeto = event.item.data[event.previousIndex].tipo
-    let nombreObjeto = event.item.data[event.previousIndex].nombre
-    let tipoContenedor = event.container.id
+  drop(event: CdkDragDrop<any[]>, categoryName: string) {
 
-    if(tipoObjeto === tipoContenedor){
+    let tipoContenedor = event.container.id
+    let tipoBasuraId = event.item.data.category
+
+    let nombreBasura = event.item.data.itemName
+    let nombreContenedor = categoryName
+    
+    //se muestra la data del objeto basura que se esta arrastrando
+    // console.log("Datos de Ojeto")
+    // console.log(event.item.data)
+
+    // console.log('Datos contenedor')
+    // console.log(event.container)
+
+    // if(tipoObjeto === tipoContenedor){
+    if(tipoBasuraId === tipoContenedor){
       
       if (event.previousContainer === event.container) {
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -67,18 +80,15 @@ export class PdosComponent {
           event.currentIndex,
         );
         
-        // this.alertService.alertaFelicitacion(nombreObjeto,tipoObjeto)
-        // this.totalPunteo = this.alertService.punteo(tipoContenedor,tipoObjeto)
         this.sonidoService.respuestaCorrecta();
-        this.alertService.sweetAlertCorrecto(nombreObjeto,tipoObjeto);
+        this.alertService.sweetAlertCorrecto(nombreBasura,nombreContenedor);
         this.totalPunteo +=10
   
       }
     }else{
-      // this.alertService.alertaRetroalimentacion(nombreObjeto,tipoContenedor)
-      // this.totalPunteo = this.alertService.punteo(tipoContenedor,tipoObjeto)
+  
       this.sonidoService.respuestaIncorrecta();
-      this.alertService.sweetAlertIncorrecto(nombreObjeto,tipoContenedor);
+      this.alertService.sweetAlertIncorrecto(nombreBasura,nombreContenedor);
       this.totalPunteo -=5
 
     }
@@ -86,28 +96,31 @@ export class PdosComponent {
   }
 
   ngOnInit(): void{
-    // this.getItems();
+    this.getItems();
+    this.getCategories();
     // this.sonidoService.playFondo();
   }
 
-  // getItems(){
-  //   this.apiService.getItems().subscribe(
-  //     (respuesta) => {
-  //       this.datos = respuesta;
-  //       console.log(this.datos);
-  //     },
-  //     (error) => {
-  //       console.error('Error al obtener datos', error)
-  //     }
-      
-  //   );
+  getItems(){
+    this.apiService.getItems().subscribe({
+      next: (response)=> {
+        this.listaBasusa = response;
+        // console.log(response)
+      },
+      error: (error) => {console.log(error)}
+    });
+  }
 
-  //   // this.apiService.getItems().subscribe({
-  //   //   next: (response)=> {console.log(response)},
-  //   //   error: (error) => {console.log(error)}
-  //   // });
+  getCategories(){
 
-  // }
+    this.apiService.getCategorias().subscribe({
+      next: (response)=> {
+        this.listaCategories = response;
+        // console.log(response)
+      },
+      error: (error) => {console.log(error)}
+    });
 
+  }
 
 }

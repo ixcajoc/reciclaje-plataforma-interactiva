@@ -1,66 +1,50 @@
 <app-header/>
 <div cdkDropListGroup>
-  <div class="container categorias">
-    <div class="row">
-
-      <div class="col">
-        <h2>organicos</h2>
-      
-        <div 
-          id="organico"
-          cdkDropList
-          [cdkDropListData]="organicos"
-          class="example-list entered"
-          (cdkDropListDropped)="drop($event)"
-          >
-          organicos
-        </div>
-      </div>
-      <div class="col">
-        <h2>Inorganicos</h2>
-      
-        <div
-          id="inorganico"
-          cdkDropList
-          [cdkDropListData]="inorganicos"
-          class="example-list entered"
-          (cdkDropListDropped)="drop($event)"
-          >
-         
-        </div>
-      </div>
-      <div class="col">
-        <h2>No reciclables</h2>
-      
-        <div
-          id="no_reciclable"
-          cdkDropList
-          [cdkDropListData]="no_reciclables"
-          class="example-list entered"
-          (cdkDropListDropped)="drop($event)"
-          >
-         
-        </div>
-      </div>
-
-    </div>
-
-  </div>
+  
   <div class="container">
     <p>punteo: {{totalPunteo}}</p>
   </div>
 
+  <!-- aca comientza iteracion  -->
+  <div class="container categorias">
+    <div class="row">
+      @for (categoria of listaCategories; track categoria) {
+      <div class="col">
+        <h2>{{categoria.categoryName}}</h2>
+      
+        <div 
+          id={{categoria._id}}
+          cdkDropList
+          [cdkDropListData]="categoria.items"
+          class="example-list entered"
+          (cdkDropListDropped)="drop($event,categoria.categoryName)"
+          >
+          <!-- Categoria: {{categoria.categoryName}}<br>
+          Id: {{categoria._id}} -->
+          <!-- ------------------------------ -->
+          <!-- @for (item of categoria.items; track item) {
+            {{item}}
+          } -->
+        </div>
+      </div>
+      }
+
+    </div>
+
+  </div>
+
+  <!-- aca empieza el otro mudoulo -->
   <div class="container border mt-5">
-    <h2>Objetos</h2>
+    <h2>Objetos 2</h2>
   
     <div
       id="even"
       cdkDropList
       cdkDropListOrientation="horizontal"
-      [cdkDropListData]="objetos"
+      [cdkDropListData]="listaBasusa"
       class="example-list"
       >
-      @for (objeto of objetos; track objetos) {
+      @for (basura of listaBasusa; track basura) {
         
         <!-- <p>{{cantidadObjetos}}</p> -->
         <!-- <p>{{$index}}</p> -->
@@ -69,24 +53,23 @@
           <div
             class="example-box border border-primary d-flex justify-content-center"
             cdkDrag
-            [cdkDragData]="objetos"
+            [cdkDragData]="basura"
             >
             <div class="d-flex flex-column">
-              {{objeto.nombre}}
-              <img class="img" [src]="objeto.imagen" alt="{{objeto.nombre}}">
+              Nombre: {{basura.itemName}} <br>
+              <!-- Categoria{{basura.category}} -->
+              <!-- <img class="img" [src]="objeto.imagen" alt="{{objeto.nombre}}"> -->
               
   
             </div>
             
           </div>
-
-        }
-
-        
+        }  
       }
     </div>
+
   </div>
-  
+
 </div>
 
 

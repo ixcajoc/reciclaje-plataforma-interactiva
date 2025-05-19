@@ -23,4 +23,11 @@ export class ApiService{
 
   }
 
+
+  getCategorias(): Observable<any>{
+    // return this.http.get(`${this.apiUrl}/items`);
+    return this.http.get<any>('http://localhost:4000/api/categories');
+
+  }
+
 }

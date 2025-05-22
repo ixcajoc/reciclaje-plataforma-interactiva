@@ -1,0 +1,71 @@
+.pantalla-completa{
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* position:absolute; */
+    position: relative;
+    /* border: solid white; */
+    overflow: hidden;
+
+}
+
+.texto{
+    text-align: right;
+    padding: 30px;
+    /* border: solid; */
+    width: 100%;
+    /* height: 100px; */
+    position: absolute;
+    top:100px;
+    /* right: 60px; */
+    /* bottom: 10px; */
+
+}
+
+.barra-controles{
+    padding: 50px;
+    /* border: solid; */
+    position: absolute;
+    top: 10;
+    width: 100%;
+    text-align: center;
+}
+/* .contenedor-boton{
+    padding: 20px;
+    background-color: #ee961a;
+    border-radius: 15px;
+    width: 200px;
+}*/
+.start{
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+.bi-play{
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+} 
+
+.start-button {
+    text-decoration: none;
+    width: 200px;
+    background-color: #ffcc00;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+.start-button:hover {
+    background-color: #ffbb00;
+    transform: scale(1.05);
+}
+.start-button:active {
+    transform: scale(0.95);
+}

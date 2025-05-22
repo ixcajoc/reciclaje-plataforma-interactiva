@@ -41,6 +41,10 @@ export class AlertService {
     });
   }
 
+  //alerta para que cuando inicie el juego semuestre una ventana emergente que indique 
+  //las insutrcciones de arrastrar y soltars
+  
+
   // punteo(tipoContenedor:string,tipoObjeto:string){
   //   let punteo = 0//esto esta ma. Cada vez que se ejecute la funcion, el valor iniciara en cero, no permitira acumular puntos
   //   if(tipoContenedor == tipoObjeto){

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import HomeComponent from './componentes/home/home.component';
 import { PdosComponent } from './componentes/pdos/pdos.component';
+import PantallaInicioComponent from './componentes/pantalla-inicio/pantalla-inicio.component';
 
 export const routes: Routes = [
 
@@ -9,7 +10,11 @@ export const routes: Routes = [
         component: HomeComponent,
         title: 'Home Page',
     },
-    
+    {
+        path: "inicio",
+        component: PantallaInicioComponent,
+        title: 'Inicio',
+    },
     {
         path: "pdos",
         component: PdosComponent,

@@ -92,7 +92,8 @@
   flex-basis: 0;
 }
 .img{
-  width: 100px;
+  /* width: 100px; */
+  width: 100%;
 }
 .entered{
   cursor: pointer;

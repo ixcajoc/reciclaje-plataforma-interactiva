@@ -4,7 +4,11 @@
     <!-- <span class="navbar-brand mb-0 h1">Navbar</span> -->
     <div class="d-flex gap-3 align-items-center">
       <img class="img" src="assets/user-dog.png" alt="user dog">
-      <p class="text-black m-0">Nombre</p>
+      @if (nombreUsuario!) {
+        <p class="text-black m-0">{{nombreUsuario}}</p>
+      }@else {
+        <p class="text-black m-0">Soy Leyenda</p>
+      }
       <p class="text-black m-0">Puntos: {{punteo}}</p>
     </div>
     <!-- <button type="button" (click)="pauseSong()" class="btn btn-primary">Detener</button> -->
@@ -21,6 +25,8 @@
       }
       <input type="range" min="0" max="1" step="0.01" value="0.05" (input)="volumen($event)">
 
+      <button type="button" [routerLink]="['/inicio']" class="btn btn-primary">Finalizar</button>
     </div>
+
   </div>
 </nav>

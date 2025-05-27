@@ -1,0 +1,59 @@
+<h3 class="text-end">Nuevo Item</h3>
+<div class="row d-flex justify-center">
+
+    <form
+        id="newItemform" 
+        class="col-md-auto p-3"
+        style="margin: auto;" 
+        [formGroup]="newItemForm" 
+        (ngSubmit)="newItem()" 
+        >
+    
+        <input  
+            type="text" 
+            placeholder="Nombre" 
+            aria-label="default input example"
+            formControlName="itemName"
+            required autocomplete="off"
+            class="form-control p-3 fs-3 text-center">
+        
+        <input type="text" 
+            placeholder="url"
+            aria-label="default input example"
+            formControlName="imageUrl"
+            required autocomplete="off"
+            class="form-control mt-3 p-3 fs-3 text-center ">
+        
+        <select 
+            class="form-select mt-3 p-3 fs-3 text-center" 
+            aria-label="Default select example"
+            formControlName="category"
+            required autocomplete="off" >
+            
+            <option [selected]="true" class="text-center">- Selecciona -</option>
+            <option value="6822d4b989a21baf525ecf13">Orgánico</option>
+            <option value="6822d4c289a21baf525ecf15">Reciclable</option>
+            <option value="6822d4c689a21baf525ecf17">No Reciclable</option>
+        </select>
+        
+        <div class="d-flex gap-2">
+
+            <button 
+                class="btn btn-danger p-3 fs-3 mt-3" 
+                style="width: 100%;" 
+                type="submit" 
+                routerLink="/admin"
+                >Cancelar</button>
+
+            <button 
+                class="btn btn-primary p-3 fs-3 mt-3" 
+                style="width: 100%;" 
+                type="submit" 
+                [disabled]="newItemForm.invalid">Crear</button>
+        </div>         
+
+                
+    </form>
+</div>
+
+ 

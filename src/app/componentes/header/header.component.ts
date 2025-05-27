@@ -1,12 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { SonidoService } from '../../services/sonido-service.service';
+import { ApiService } from '../../services/api-service.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
@@ -15,13 +18,17 @@ export default class HeaderComponent {
 
   @Input() punteo!: number;
   sonidoOn: boolean = true;
+  nombreUsuario:string = '';
 
   constructor(
     private sonidoService: SonidoService,
+    private apiService: ApiService,
+
   ){}
   ngOnInit(): void{
-    this.sonidoService.fondoSong.volume = 0.3;
+    this.sonidoService.fondoSong.volume = 0.5;
     this.playSong();
+    this.getNombre();
   }
 
   playSong(){
@@ -51,6 +58,10 @@ export default class HeaderComponent {
     }else{
       this.volumenOn(false);
     }
+  }
+
+  getNombre(){
+    this.nombreUsuario = this.apiService.nombreUser;
   }
   
 }

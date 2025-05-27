@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SonidoService } from '../../services/sonido-service.service';
 import HeaderComponent from '../header/header.component';
 import { ApiService } from '../../services/api-service.service';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-pdos',
@@ -23,7 +24,9 @@ import { ApiService } from '../../services/api-service.service';
     DragDropModule,
     MatGridListModule,
     HttpClientModule,
-    HeaderComponent
+    HeaderComponent,
+    RouterModule,
+
   ],
   templateUrl: './pdos.component.html',
   styleUrl: './pdos.component.css'
@@ -32,25 +35,16 @@ export class PdosComponent {
   constructor(
     private alertService: AlertService,
     private sonidoService: SonidoService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router,
+    
   ){}
 
-  // organicos: any[]=[] 
-  // inorganicos: any[]=[] 
-  // no_reciclables: any[]=[]
   totalPunteo: number = 0
-  datos:any = []
+  // datos:any = []
   listaBasusa: any = []
   listaCategories: any = []
 
-
-  objetos: any[] = [
-    { nombre: 'Cáscara de plátano', tipo: 'organico', imagen: 'assets/platano.avif' },
-    { nombre: 'Botella de plástico', tipo: 'inorganico', imagen: 'assets/botella.png' },
-    { nombre: 'Papel sucio', tipo: 'no_reciclable', imagen: 'assets/papel.jpg' },
-    { nombre: 'Cascara de manzana', tipo: 'organico', imagen: 'assets/papel.jpg' },
-    { nombre: 'llanta', tipo: 'no_reciclable', imagen: 'assets/papel.jpg' }
-  ];
 
   drop(event: CdkDragDrop<any[]>, categoryName: string) {
 
@@ -98,6 +92,7 @@ export class PdosComponent {
   ngOnInit(): void{
     this.getItems();
     this.getCategories();
+    // this.showNombre();
     // this.sonidoService.playFondo();
   }
 
@@ -121,6 +116,13 @@ export class PdosComponent {
       error: (error) => {console.log(error)}
     });
 
+  }
+
+  finalizar(){
+    this.apiService.getPunteo(this.totalPunteo)
+    this.router.navigate(['/resumen']);
+
+    
   }
 
 }

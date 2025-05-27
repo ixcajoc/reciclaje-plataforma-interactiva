@@ -1,0 +1,25 @@
+<div class="fondo-campeon">
+    <div class="centrar">
+        <div class="container text-center">
+            @if (totalPunteo>50) {
+                <p>Al infinito y más allá!!!</p>
+            }@else {
+                <p>Estás cerca de llegar a las estrellas</p>
+            }
+        </div>
+        <div class="logo">
+            <img class="img" src="assets/user-dog.png" alt="logo">
+        </div>
+        <div class="nombre">
+            <p class="">{{nombreUsuario}}</p>
+        </div>
+        <div class="contenedor-punteo">
+            <p> {{totalPunteo}} pts</p>
+        </div>
+
+        <button type="button" [routerLink]="['/inicio']" class="btn btn-primary">Finalizar</button>
+
+
+    </div>
+    
+</div>

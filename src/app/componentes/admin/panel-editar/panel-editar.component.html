@@ -1,0 +1,54 @@
+<h2 class="text-end">Actualizar</h2>
+<div class="row d-flex gap-3 justify-content-center align-items-center">
+
+    <div class="col-md-auto card p-0" style="width: auto; min-width: 50%;">
+        <img style=" 
+            max-width: 100%; 
+            object-fit: scale-down;
+            height: 30vh" 
+            [src]="itemBasura.imageUrl" alt="imagen">
+    </div>
+
+    <form
+        id="loginform" 
+        class="col-md-auto p-3"
+        style="width: auto; min-width: 50%" 
+        [formGroup]="editedItemForm" 
+        (ngSubmit)="updateData()" 
+        >
+    
+        <input  
+            type="text" 
+            placeholder="Tu usuario" 
+            aria-label="default input example"
+            formControlName="itemName"
+            required autocomplete="off"
+            class="form-control p-3 fs-3 text-center">
+        
+        <input type="text" 
+            id="inputPassword5" 
+            placeholder="url"
+            aria-describedby="passwordHelpBlock"
+            formControlName="imageUrl"
+            required autocomplete="off"
+
+            class="form-control mt-3 p-3 fs-3 text-center ">
+        
+        <div class="d-flex gap-2">
+
+            <button 
+                class="btn btn-primary p-3 fs-3 mt-3" 
+                style="width: 100%;" 
+                type="submit" 
+                routerLink="/admin"
+                >Regresar</button>
+
+            <button 
+                class="btn btn-primary p-3 fs-3 mt-3" 
+                style="width: 100%;" 
+                type="submit" 
+                [disabled]="editedItemForm.invalid">Actualizar</button>
+        </div>         
+        
+    </form>
+</div>

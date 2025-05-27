@@ -1,0 +1,6 @@
+.texto-incompleto{
+    white-space: nowrap;          /* Evita el salto de línea */
+    overflow: hidden;             /* Oculta el desbordamiento */
+    text-overflow: ellipsis;     /* Muestra los tres puntos */
+    max-width: 150px;     
+}

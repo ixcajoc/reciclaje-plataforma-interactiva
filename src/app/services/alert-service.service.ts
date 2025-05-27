@@ -41,6 +41,22 @@ export class AlertService {
     });
   }
 
+  successAlert(comment:string){
+    Swal.fire({
+      title: "¡Bien!",
+      text: `${comment}`,
+      icon: "success"
+    });
+  }
+  wrongAlert(error:string){
+    Swal.fire({
+      title: "Algo salió mal",
+      text: `Error: ${error}`,
+      icon: "error"
+    });
+
+  }
+
   //alerta para que cuando inicie el juego semuestre una ventana emergente que indique 
   //las insutrcciones de arrastrar y soltars
   

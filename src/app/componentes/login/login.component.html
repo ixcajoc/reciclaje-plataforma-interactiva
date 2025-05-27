@@ -1,0 +1,50 @@
+<div class="pantalla-completa fondo">
+    <div class="text-center">
+        <form
+            id="loginform" 
+            class="contenedor-login" 
+            [formGroup]="loginForm" 
+            (ngSubmit)="onSubmit()" 
+            >
+        
+            <input  
+                type="text" 
+                placeholder="Tu usuario" 
+                aria-label="default input example"
+                formControlName="user"
+                required autocomplete="off"
+                class="form-control p-3 fs-3 text-center">
+            
+            <input type="password" 
+                id="inputPassword5" 
+                placeholder="Tu clave"
+                aria-describedby="passwordHelpBlock"
+                formControlName="password"
+                required autocomplete="off"
+                class="form-control mt-3 p-3 fs-3 text-center ">
+         
+            <button 
+                class="btn btn-primary p-3 fs-3 mt-3" 
+                style="width: 100%;" 
+                type="submit" 
+                [disabled]="loginForm.invalid">Login</button>
+    
+            
+        </form>
+
+        <!-- <a
+        class="text-white"
+        style="text-decoration: none;" 
+        href="/inicio">Regresar</a> -->
+        <button 
+            type="button" 
+            class="btn btn-link"
+            [routerLink]="['/inicio']"
+            >Regresar
+        </button>
+
+    </div>
+
+
+    
+</div>

@@ -1,0 +1,42 @@
+<!-- use tailwind aca -->
+<div class="pantalla-completa fondo">
+    <div class="centrar border">
+        <h2 class="text-white">Memoria</h2>
+        
+        <div class="row border d-flex justify-content-center gap-2">
+        
+            @for (card of cards; track $index) {
+
+                <div class="cursor border col-md-3 tarjeta"
+                (click)="flipCard(card)"
+                [ngClass]="card.flipped || card.matched ? 'bg-white' : 'bg-white'"
+                >
+                @if (card.flipped || card.matched) {
+
+                    <img class="" style="width: 100px;" [src]="card.image" alt="">
+                }@else {
+                    {{$index}}
+                }
+                    <!-- {{card.flipped || card.matched ? card.image : $index}} -->
+                </div>
+
+                
+
+            }
+        </div>
+        <!-- @for (card of cards; track $index) {
+
+            <div class="card" style="width: 20%;">
+                <img [src]="" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">banano</h5>
+                    <p class="card-text">Reciclable</p>
+                </div>
+            </div>
+        } -->
+
+        <button type="button" (click)="resetGame()" class="btn btn-primary">Resetear</button>
+
+
+    </div>
+</div>

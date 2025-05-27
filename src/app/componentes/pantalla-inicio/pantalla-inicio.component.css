@@ -24,6 +24,8 @@
 }
 
 .barra-controles{
+    display: flex;
+    justify-content: space-between;
     padding: 50px;
     /* border: solid; */
     position: absolute;

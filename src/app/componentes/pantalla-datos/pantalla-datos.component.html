@@ -1,0 +1,70 @@
+<div class="pantalla-completa fondo">
+
+    <iframe src='https://my.spline.design/kidsplaygroundphysicscopy-ogrL6cb4cS41HhCfhvLNwHSn/' frameborder='0' width='100%' height='100%'></iframe>
+    <!-- <div class="contenedor-datos">
+        <p class="text-white fs-1">Trashy</p>
+
+        <div class="input-group input-group-lg">
+            <span class="input-group-text" id="inputGroup-sizing-lg">icono</span>
+            <input 
+                type="text" 
+                class="form-control" 
+                aria-label="Sizing example input" 
+                aria-describedby="inputGroup-sizing-lg"   
+            >
+        </div>
+        <div class="">
+            <div class="contenedor-boton start-button">
+            
+                <i class="bi bi-play"></i>
+                <a 
+                    class="start"
+                    href="/pdos"
+                    
+                    >Start</a>
+            </div>
+        </div>
+
+    </div> -->
+
+    <!-- <form [formGroup]="loginForm" (ngSubmit)="getNombre()" id="loginform">
+                    <input class="" type="text" id="user" formControlName="user" placeholder="Usuario" required autocomplete="off">
+                    <div class="validacion" *ngIf="loginForm.get('user')?.hasError('required') &&  loginForm.get('user')?.touched" >Nombre de usuario obligatorio</div>
+
+                    
+                    <button type="submit" [disabled]="loginForm.invalid">Start</button>
+    </form> -->
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="loginform"
+         class="contenedor-datos">
+        
+         <p class="text-white fs-1">Trashy</p>
+
+        <div class="input-group input-group-lg">
+            <!-- <span class="input-group-text" id="inputGroup-sizing-lg">icono</span> -->
+
+            <input type="text" id="user" formControlName="user" placeholder="Tu nombre" required autocomplete="off"
+                
+                class="form-control" 
+                aria-label="Sizing example input" 
+                aria-describedby="inputGroup-sizing-lg"   
+            >
+        </div>
+        <div class="">
+            <!-- <div class="contenedor-boton start-button">
+            
+                <i class="bi bi-play"></i>
+                <a 
+                    class="start"
+                    href="/pdos"
+                    
+                    >Start</a>
+            </div> -->
+            <button  type="submit" [disabled]="loginForm.invalid">Start</button>
+
+        </div>
+
+    </form>
+
+
+</div>

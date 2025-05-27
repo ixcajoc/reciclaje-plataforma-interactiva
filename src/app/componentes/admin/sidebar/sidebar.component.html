@@ -1,0 +1,117 @@
+
+<div class="row">
+    <div class="col ocultar">
+        
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height: 100vh;">
+            <!-- seccion de logotipo -->
+            <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"></svg>
+                <span class="fs-4">Trashy</span>
+            </a>
+            <!-- seccion de opciones -->
+            <hr> <!-- linea separadora -->
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        
+                        <a routerLink="/admin/cards" class="nav-link" routerLinkActive="bg-primary text-white" aria-current="page">
+                            <i class="bi bi-house-door"></i>
+                            <!-- <svg class="bi me-2" width="16" height="16"><use class="text-white" xlink:href="#home"></use></svg> -->
+                        Home
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/admin/nuevo" class="nav-link" routerLinkActive="bg-primary text-white">
+                        <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> -->
+                        <i class="bi bi-plus-circle"></i>
+                        Nuevo Item
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin" class="nav-link" routerLinkActive="bg-primary text-white">
+                        <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg> -->
+                        <i class="bi bi-play-circle"></i>
+                        videos
+                        </a>
+                    </li>
+                
+                </ul>
+            
+            <!-- seccion icono usuario -->
+            <hr> <!-- linea separadora -->
+            <div class="dropdown">
+            <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>User</strong>
+            </a>
+
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                <li><a class="dropdown-item" href="#">Nuevos proyectos</a></li>
+                <li><a class="dropdown-item" href="#">Ajustes</a></li>
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/inicio">Cerrar sesion</a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- responsive -->
+    <div class="col mostrar">
+        
+        <div class="d-flex flex-column flex-shrink-0 bg-body-tertiary" style="width: 4.5rem; height: 100vh;"> 
+            <a href="/admin" class="d-block p-3 link-body-emphasis text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+                TSH
+                <!-- <i class="bi bi-play-circle"></i> -->
+                <span class="visually-hidden">Icon-only</span>
+            </a>
+            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+                <li class="nav-item"> 
+                    <a routerLink="/admin/cards"  routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom rounded-0" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home"> 
+                        
+                        <i class="bi bi-house-door"></i>
+                    </a> 
+                </li> 
+                
+                <li> 
+                    <a routerLink="/admin/nuevo" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Dashboard" data-bs-original-title="Dashboard"> 
+                        
+                        <i class="bi bi-plus-circle"></i>
+                    </a> 
+                </li> 
+                <li> 
+                    <a href="/admin"  routerLinkActive="bg-primary" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders"> 
+                        <i class="bi bi-play-circle"></i>
+                    </a> 
+                </li> 
+                
+            </ul> 
+
+            <div class="dropdown border-top"> 
+                <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> 
+                    <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle"> 
+                </a> <ul class="dropdown-menu text-small shadow"> 
+                    <li><a class="dropdown-item" href="#">New project...</a>
+                    </li> 
+                    <li>
+                        <a class="dropdown-item" href="#">Settings</a>
+                    </li> 
+                    <li>
+                        <a class="dropdown-item" href="#">Profile</a>
+                    </li> 
+                    <li>
+                        <hr class="dropdown-divider"></li> 
+                        <li>
+                            <a class="dropdown-item" href="#">Sign out</a>
+                        </li> 
+                    </ul> 
+                </div> 
+    </div>
+    </div>
+
+
+</div>
+
+
+
+
+

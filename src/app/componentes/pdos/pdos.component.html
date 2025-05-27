@@ -1,7 +1,9 @@
 <div class="fondo-morado">  
   <app-header [punteo]="totalPunteo"/>
+  <!-- <p class="text-white">lista {{listaBasusa.length}}</p> -->
+
   <div class="py-5" cdkDropListGroup>
-    
+  
     <!-- <div class="container text-white">
       <div class="">
 
@@ -64,7 +66,8 @@
                 <p class="text-center text-white p-2" 
                   style="background-color: #552277;">{{basura.itemName}}</p> 
                 <div class="d-flex justify-content-center align-items-center">
-                  <img class="img" src="assets/botella.png" alt="{{basura.itemName}}">
+                  <img  class="img" [src]="basura.imageUrl" alt="imagen">
+                  <!-- <img class="img" src="assets/lapiz.gif" alt="{{basura.itemName}}"> -->
                   <!-- <img class="img" [src]="objeto.imagen" alt="{{objeto.nombre}}"> -->
                 </div>
                 
@@ -75,7 +78,28 @@
       </div>
 
     </div>
-
+    <!-- 
+    para la dificultad, podemos hacer que en la pantalla de usuario, se elija la dificultad
+    e incluir cuentas regresivas y longitud de la lista de opciones.
+    2. incluir objetos flotantes incluyendo el punteo obtenido por respuesta
+    3. incluir un apartado de videos educativos para que puedan verlos 
+    -->
+    
+    @if (listaBasusa.length>8) {
+      <div class="container d-flex justify-content-end text-white">
+        {{listaBasusa.length}}
+      </div>
+      
+    }@else {
+      <div class="container d-flex justify-content-end">
+          <button type="button" (click)="finalizar()" class="btn btn-primary">Continur</button>
+      </div>
+    }
   </div>
+  
+
+  
+  
+
 
 </div>

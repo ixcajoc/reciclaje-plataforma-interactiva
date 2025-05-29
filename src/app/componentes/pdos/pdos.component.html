@@ -57,18 +57,26 @@
           @if ($index<1) {
 
             <div
-              class="caja"
+              class="caja "
               cdkDrag
               [cdkDragData]="basura"
               >
               <div class="d-flex flex-column">
 
-                <p class="text-center text-white p-2" 
+                <p class="text-center text-white p-2 m-0" 
                   style="background-color: #552277;">{{basura.itemName}}</p> 
-                <div class="d-flex justify-content-center align-items-center">
-                  <img  class="img" [src]="basura.imageUrl" alt="imagen">
-                  <!-- <img class="img" src="assets/lapiz.gif" alt="{{basura.itemName}}"> -->
-                  <!-- <img class="img" [src]="objeto.imagen" alt="{{objeto.nombre}}"> -->
+                <!-- <div class="d-flex justify-content-center align-items-center"> -->
+                <div class=""
+                  style="
+                      width: 100%;
+                      /* max-width: 100%; */
+                      height: auto;
+                      /* max-height: 100vh; */
+                      object-fit: scale-down;
+                      /* border: solid; */
+                  ">
+                  <img  class="img" 
+                  [src]="basura.imageUrl" alt="imagen">
                 </div>
                 
               </div>

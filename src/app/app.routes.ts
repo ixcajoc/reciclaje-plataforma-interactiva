@@ -10,6 +10,7 @@ import { AdminComponent } from './componentes/admin/admin.component';
 import { NuevosComponent } from './componentes/admin/nuevos/nuevos.component';
 import { PanelCardsComponent } from './componentes/admin/panel-cards/panel-cards.component';
 import { PanelEditarComponent } from './componentes/admin/panel-editar/panel-editar.component';
+import { PantallaMultimediaComponent } from './componentes/pantalla-multimedia/pantalla-multimedia.component';
 
 export const routes: Routes = [
 
@@ -76,6 +77,11 @@ export const routes: Routes = [
 
             }
         ]
+    },
+    {
+        path: "videos",
+        component: PantallaMultimediaComponent,
+        title: 'Videos',
     },
 
     // {

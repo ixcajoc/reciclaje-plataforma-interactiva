@@ -93,7 +93,12 @@
 }
 .img{
   /* width: 100px; */
+  /* width: 100%; */
   width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: center;
+
 }
 .entered{
   cursor: pointer;

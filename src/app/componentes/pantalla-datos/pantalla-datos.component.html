@@ -36,32 +36,46 @@
     </form> -->
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="loginform"
-         class="contenedor-datos">
+         class="contenedor-datos "
+         style="background-color: #ffffff5f;"
+         >
         
-         <p class="text-white fs-1">Trashy</p>
+         <p class="text-black fw-bolder fs-1 px-3 py-2 rounded"
+            style="
+                background-color: #ffffff5f;
+                width: 300px;
+                text-align: center;"
+            >Trashy</p>
 
-        <div class="input-group input-group-lg">
+        <div class="">
             <!-- <span class="input-group-text" id="inputGroup-sizing-lg">icono</span> -->
 
-            <input type="text" id="user" formControlName="user" placeholder="Tu nombre" required autocomplete="off"
-                
+            <input 
+                type="text" 
+                id="user" 
+                formControlName="user" 
+                placeholder="Tu nombre" 
+                required autocomplete="off"
                 class="form-control" 
                 aria-label="Sizing example input" 
-                aria-describedby="inputGroup-sizing-lg"   
+                aria-describedby="inputGroup-sizing-lg"
+                style="width: 300px;"
+                   
             >
-        </div>
-        <div class="">
-            <!-- <div class="contenedor-boton start-button">
-            
-                <i class="bi bi-play"></i>
-                <a 
-                    class="start"
-                    href="/pdos"
-                    
-                    >Start</a>
-            </div> -->
-            <button  type="submit" [disabled]="loginForm.invalid">Start</button>
+            <div class="row g-1">
 
+                <button class="col btn btn-primary mt-2 p-3"  
+                    type="submit" 
+                    style="width: 100%;"
+                    (click)="option(1)"
+                    [disabled]="loginForm.invalid">Drag</button>
+                
+                <button class="col btn btn-primary mt-2 p-3"  
+                    type="submit" 
+                    style="width: 100%;"
+                    (click)="option(2)"
+                    [disabled]="loginForm.invalid">Memoria</button>
+            </div>
         </div>
 
     </form>

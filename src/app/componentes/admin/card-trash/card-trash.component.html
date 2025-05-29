@@ -1,8 +1,17 @@
-<div class="card">
+<div class="card" style="border-radius: 0;">
     
-    <div class="d-flex justify-content-center " style="width: 100%;">
+    <div class="d-flex justify-content-center "
+        style="
+            width: 150px;
+            min-width: 100%;
+            ">
 
-        <div class="" style="width: 200px; height: 200px;">
+        <div class="" 
+            style="
+                /* width: 200px;  */
+                height: 150px; /*tamanio de imagen, importante*/
+                "
+                >
             <img class="" 
                 style="width: 100%; 
                 /* max-width: 100%;  */
@@ -13,54 +22,55 @@
                 [src]="ObjetoBasura.imageUrl" alt="imagen">
         </div>
     </div>
-    <div class="pb-2 px-2">
+    <div class="pb-1 px-1">
 
-    <div class="text-end p-0 pt-3 m-0">
-        @switch (ObjetoBasura.category) {
-            @case ('6822d4b989a21baf525ecf13') {
-                
-                <p class="text-success p-0  m-0">Organico</p>
+        <div class="text-end p-0 pt-3 m-0"
+            style="font-size: 10px;">
+            @switch (ObjetoBasura.category) {
+                @case ('6822d4b989a21baf525ecf13') {
+                    
+                    <p class="text-success p-0  m-0">Organico</p>
+                }
+                @case ('6822d4c289a21baf525ecf15') {
+                    
+                    <p class="text-primary p-0  m-0">Reciclable</p>
+                }
+                @case ('6822d4c689a21baf525ecf17') {
+                    
+                    <p class="text-danger p-0  m-0">No reciclable</p>
+                }
+                @default { 
+                    Desconocido 
+                } 
             }
-            @case ('6822d4c289a21baf525ecf15') {
-                
-                <p class="text-primary p-0  m-0">Reciclable</p>
-            }
-            @case ('6822d4c689a21baf525ecf17') {
-                
-                <p class="text-danger p-0  m-0">No reciclable</p>
-            }
-            @default { 
-                Desconocido 
-            } 
-        }
-    </div>
-    <div class="text-center">
+        </div>
+        <div class="text-center">
+            
+            <p class="fw-bold texto-incompleto">{{ObjetoBasura.itemName}}</p>
         
-        <h2 class="fs-5  texto-incompleto">{{ObjetoBasura.itemName}}</h2>
-    
-    </div>
-    <div class="d-flex gap-2">
+        </div>
+        <div class="d-flex gap-1">
 
-        <button
-            class="btn btn-outline-primary" 
-                style="width: 50%"
+            <button
+                class="btn btn-outline-primary py-0" 
+                    style="width: 50%; border-radius: 0;"
+                    type="button"
+                    [routerLink]="['/admin/editar',ObjetoBasura._id]" 
+            >
+            <span><i class="bi bi-pencil-square"></i></span>
+            </button>
+
+            <button 
+                class="btn btn-outline-danger" 
+                style="width: 50%; border-radius: 0;"
                 type="button"
-                [routerLink]="['/admin/editar',ObjetoBasura._id]" 
-        >
-        <span><i class="bi bi-pencil-square"></i></span>
-        Editar</button>
+                (click)="confirmarEliminar()"
+            >
+            <span><i class="bi bi-trash3-fill"></i></span>
+            </button>
 
-        <button 
-            class="btn btn-outline-danger" 
-            style="width: 50%;"
-            type="button"
-            (click)="confirmarEliminar()"
-        >
-        <span><i class="bi bi-trash3-fill"></i></span>
-        Eliminar</button>
-
+        </div>
     </div>
-</div>
 
 
     

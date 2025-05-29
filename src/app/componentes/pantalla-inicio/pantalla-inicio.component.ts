@@ -17,7 +17,7 @@ export default class PantallaInicioComponent {
   constructor(private sonidoService: SonidoService)
   {}
   ngOnInit(){
-    this.playFondo();
+    // this.playFondo();
   }
   playFondo(){
     this.sonidoService.playFondo();

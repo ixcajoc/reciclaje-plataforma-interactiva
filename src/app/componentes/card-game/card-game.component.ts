@@ -2,17 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { Card } from '../../interfaces/card.interface';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api-service.service';
+import { Router, RouterModule } from '@angular/router';
+import HeaderComponent from '../header/header.component';
 
 @Component({
   selector: 'app-cart-game',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule, 
+    RouterModule,
+    HeaderComponent
+  ],
   templateUrl: './card-game.component.html',
   styleUrl: './card-game.component.css'
 })
 export class CardGameComponent implements OnInit{
   constructor(
     private apiService: ApiService,
+    private router: Router,
   )
   {}
   
@@ -20,43 +27,17 @@ export class CardGameComponent implements OnInit{
   flippedCards: Card[] = [];
   isChecking: boolean = false;
   listaBasura: any= [];
+
+  //datos usuarios
+  sonidoOn: boolean = true;
+  nombreUsuario:string = 'Denis';
+  punteo: number = 0;
   
   
   ngOnInit(): void {
     this.getItems();
-    // this.iniciarJuego();
   }
-  // getItems(){
-  //   this.apiService.getItems().subscribe({
-  //     next: (response)=> {
-  //       this.listaBasura = response;
-  //       // console.log(response)
-  //     },
-  //     error: (error) => {console.log(error)}
-  //   });
-  // }
-
-  // getItems() {
-  //   this.apiService.getItems().subscribe({
-  //       next: (response) => {
-  //           this.listaBasura = response;
-
-  //           // Crear un nuevo arreglo con solo el id y el nombre
-  //           this.cards = this.listaBasura.map((item:any) => ({
-  //               id: item._id, // Usar _id como id
-  //               image: item.itemName, // Usar itemName como nombre
-  //               flipped: false,
-  //               matched: false
-  //           })).sort(() => Math.random() - 0.5); // Barajar el arreglo
-
-  //           console.log(this.cards); // Opcional: para verificar el contenido
-  //       },
-  //       error: (error) => {
-  //           console.log(error);
-  //       }
-  //   });
-  // }
-
+  
   getItems() {
     this.apiService.getItems().subscribe({
         next: (response) => {
@@ -79,7 +60,7 @@ export class CardGameComponent implements OnInit{
                 }
             ]).sort(() => Math.random() - 0.5); // Barajar el arreglo
 
-            console.log(this.cards); // Opcional: para verificar el contenido
+            // console.log(this.cards); // Opcional: para verificar el contenido
         },
         error: (error) => {
             console.log(error);
@@ -87,41 +68,6 @@ export class CardGameComponent implements OnInit{
     });
   }
   
-  
-  // iniciarJuego(){
-  //   const images = [
-  //     '😀','🥶','🥵','👀','💯','💃','🤡','🤑',
-  //     '😀','🥶','🥵','👀','💯','💃','🤡','🤑',
-
-  //   ]
-
-  //   this.cards = images.map((image,index) => ({
-  //     id: index,
-  //     image,
-  //     flipped: false,
-  //     matched: false
-    
-  //   }))
-  //   .sort(() => Math.random() - 0.5);
-
-
-  //   // this.listaBasura.forEach((basura: any) => {
-  //   //   this.cards = basura.map((itemName: any, _id: any) => ({
-  //   //       id: _id,
-  //   //       image: itemName,
-  //   //       flipped: false,
-  //   //       matched: false
-  //   //   })).sort(() => Math.random() - 0.5);
-
-  //   // });
-  //   // console.log(this.cards)
-
-    
-    
-
-  // }
-
-
   flipCard(card: Card){
     if (this.isChecking || card.flipped || card.matched){
       return;
@@ -141,6 +87,9 @@ export class CardGameComponent implements OnInit{
     if(firstCard.image === secondCard.image){
       firstCard.matched = true;
       secondCard.matched = true;
+      this.punteo += 10;
+    }else{
+      this.punteo -=2;
     }
     setTimeout(() => {
       this.flippedCards.forEach((card) => (card.flipped = false))
@@ -153,7 +102,15 @@ export class CardGameComponent implements OnInit{
   resetGame(): void{
     // this.iniciarJuego();
     this.getItems();
+    this.punteo = 0;
   }
+
+   finalizar(){
+    this.apiService.getPunteo(this.punteo)
+    this.router.navigate(['/resumen']);
+    
+  }
+
 
 
 }

@@ -46,7 +46,13 @@
         </div>
         <div class="d-flex gap-2">
             <button type="button" (click)="resetGame()" class="btn btn-primary mt-3">Resetear</button>
-            <button type="button" (click)="finalizar()" class="btn btn-primary mt-3">Finalizar</button>
+            <!-- @if (cards.length === 0) { -->
+
+                <button type="button" (click)="finalizar()" class="btn btn-primary mt-3">Finalizar</button>
+            <!-- }@else {
+                {{cards.length}}              
+            } -->
+
 
         </div>
 

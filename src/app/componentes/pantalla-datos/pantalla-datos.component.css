@@ -14,8 +14,14 @@
   background-position: center;
   height: 100vh;
 } */
-
-
+.custom-button{
+  background-color: #7e22d4;
+  color: #fff;
+  transition: background-color ease 0.3s;
+}
+.custom-button:hover{
+  background-color: #7007d2;
+}
 .pantalla-completa{
     height: 100vh;
     width: 100%;

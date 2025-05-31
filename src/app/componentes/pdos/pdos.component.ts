@@ -92,6 +92,7 @@ export class PdosComponent {
   ngOnInit(): void{
     this.getItems();
     this.getCategories();
+    this.mensajeInformativo();
     // this.showNombre();
     // this.sonidoService.playFondo();
   }
@@ -120,9 +121,10 @@ export class PdosComponent {
 
   finalizar(){
     this.apiService.getPunteo(this.totalPunteo)
-    this.router.navigate(['/resumen']);
-
-    
+    this.router.navigate(['/resumen']);    
   }
 
+  mensajeInformativo(){
+    this.alertService.informationAlert();
+  }
 }

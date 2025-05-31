@@ -9,7 +9,11 @@
       }@else {
         <p class="text-black m-0">Soy Leyenda</p>
       }
-      <p class="text-black m-0">Puntos: {{punteo}}</p>
+      @if (punteo>0) {
+        <p class="text-success fs-3 m-0 p-0"><i class="bi bi-trophy-fill text-warning fs-1"></i> {{punteo}} <span class="fs-5">pts</span></p>
+      }@else {
+        <p class="text-danger fs-3 m-0 p-0"><i class="bi bi-trophy-fill text-warning fs-1"></i> {{punteo}} <span class="fs-5">pts</span></p>
+      }
     </div>
     <!-- <button type="button" (click)="pauseSong()" class="btn btn-primary">Detener</button> -->
     <!-- <button type="button" (click)="playSong()" class="btn btn-primary">Play</button> -->

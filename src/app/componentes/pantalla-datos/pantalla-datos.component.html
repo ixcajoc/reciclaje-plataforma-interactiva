@@ -63,18 +63,27 @@
                    
             >
             <div class="row g-1">
-
-                <button class="col btn btn-primary mt-2 p-3"  
-                    type="submit" 
-                    style="width: 100%;"
-                    (click)="option(1)"
-                    [disabled]="loginForm.invalid">Drag</button>
-                
-                <button class="col btn btn-primary mt-2 p-3"  
-                    type="submit" 
-                    style="width: 100%;"
-                    (click)="option(2)"
-                    [disabled]="loginForm.invalid">Memoria</button>
+                <div class="col">
+                    <button class="btn custom-button mt-2 p-3 "  
+                        type="submit" 
+                        style="width: 100%;"
+                        (click)="option(1)"
+                        [disabled]="loginForm.invalid">Drag</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary mt-2 p-3"  
+                        type="submit" 
+                        style="width: 100%;"
+                        (click)="option(2)"
+                        [disabled]="loginForm.invalid">Memoria</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-danger mt-2 p-3"  
+                        type="button" 
+                        style="width: 100%;"
+                        routerLink="/inicio"
+                        >Regresar</button>
+                </div>
             </div>
         </div>
 

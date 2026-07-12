@@ -9,7 +9,7 @@
         
             <input  
                 type="text" 
-                placeholder="Tu usuario" 
+                placeholder="user" 
                 aria-label="default input example"
                 formControlName="user"
                 required autocomplete="off"
@@ -17,7 +17,7 @@
             
             <input type="password" 
                 id="inputPassword5" 
-                placeholder="Tu clave"
+                placeholder="123"
                 aria-describedby="passwordHelpBlock"
                 formControlName="password"
                 required autocomplete="off"
@@ -31,6 +31,7 @@
     
             
         </form>
+        <p class="text-white pt-3">Credenciales de prueba: user y 123</p>
 
         <!-- <a
         class="text-white"
@@ -38,7 +39,7 @@
         href="/inicio">Regresar</a> -->
         <button 
             type="button" 
-            class="btn btn-link"
+            class="btn btn-link text-white"
             [routerLink]="['/inicio']"
             >Regresar
         </button>
